@@ -20,12 +20,32 @@ Quick start
 # install
 npm install
 
-# run dev server
+# run dev server (serves at localhost:3000/test/)
 npm run dev
 
 # build and export static site to `out/`
 npm run export
 ```
+
+The dev server respects the `basePath: '/test'` configuration in `next.config.js`, so you can access the app at:
+- **Home**: http://localhost:3000/test/
+- **About**: http://localhost:3000/test/#/about
+- **Contact**: http://localhost:3000/test/#/contact
+
+This matches the GitHub Pages deployment structure.
+
+Test the exported build locally
+
+Before deploying, test the static build locally:
+
+```bash
+npm run export
+npm run serve
+```
+
+Then visit: http://localhost:3000/test/
+
+This serves the exact same `out/` directory that GitHub Actions will publish.
 
 Deploy to GitHub Pages (simple):
 

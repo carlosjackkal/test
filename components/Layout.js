@@ -1,11 +1,9 @@
 import dynamic from 'next/dynamic'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const ClientRouter = dynamic(() => import('./ClientRouter'), { ssr: false })
 
 function NavLink({ path, label }) {
-  // Use hash-based URLs so HashRouter handles the navigation
-  // path should be like '/', '/about', '/contact'
   const hashUrl = `#${path}`
   
   return (
@@ -16,9 +14,10 @@ function NavLink({ path, label }) {
 }
 
 export default function Layout({ children }) {
-  // If a user lands on a hash URL, the HashRouter will handle routing
+  const [isMounted, setIsMounted] = useState(false)
+
   useEffect(() => {
-    // no-op; ensures this component rehydrates on client
+    setIsMounted(true)
   }, [])
 
   return (
@@ -30,11 +29,10 @@ export default function Layout({ children }) {
       </nav>
 
       <main style={{ padding: '12px' }}>
-        {children}
+        {/* Client: render SPA with ClientRouter (hash-based navigation) */}
+        {/* Server: render children for SSR/SEO */}
+        {typeof window !== 'undefined' ? <ClientRouter /> : children}
       </main>
-
-      {/* client-side HashRouter (only runs on client) */}
-      <ClientRouter />
     </div>
   )
 }
