@@ -1,4 +1,3 @@
-import React from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import HomeContent from './HomeContent'
 import AboutContent from './AboutContent'

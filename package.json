@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next build && next export",
-    "deploy": "npm run export && npx gh-pages -d out",
-    "serve": "serve -l 3000 out",
+    "export": "next build && next export && cp -r out/* docs",
+    "deploy": "npm run export && npx gh-pages -d docs",
+    "serve": "serve -l 3000 docs",
     "start": "next start"
   },
   "dependencies": {
