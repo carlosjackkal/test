@@ -1,10 +1,11 @@
 import Layout from '../components/Layout'
+import { OrangePaperContent } from '../components/OrangePaperContent'
 
 
-export default function ContactPage() {
+export default function OrangePaper() {
   return (
     <Layout>
-      <ArchivedContent />
+      <OrangePaperContent />
     </Layout>
   )
 }

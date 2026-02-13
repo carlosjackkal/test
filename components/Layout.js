@@ -34,7 +34,7 @@ export default function Layout({ children }) {
     //     {typeof window !== 'undefined' ? <ClientRouter /> : children}
     //   </main>
     // </div>
-
+    <div>
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -52,5 +52,11 @@ export default function Layout({ children }) {
             </div>
         </div>
     </nav>
+      <main style={{ padding: '12px' }}>
+        {/* Client: render SPA with ClientRouter (hash-based navigation) */}
+        {/* Server: render children for SSR/SEO */}
+        {typeof window !== 'undefined' ? <ClientRouter /> : children}
+      </main>
+      </div>
   )
 }
