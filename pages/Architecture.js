@@ -1,4 +1,4 @@
-export function ArchitectureContent() {
+export function ArchitecturePage() {
   return (
     <section id="architecture">
       <h1>Architecture</h1>

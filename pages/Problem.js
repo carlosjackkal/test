@@ -1,4 +1,4 @@
-export default function ProblemContent() {
+export default function ProblemContentPage() {
   return (
     <section id="problem">
       <h1>Problem</h1>

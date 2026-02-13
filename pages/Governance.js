@@ -1,4 +1,4 @@
-export default function GovernanceContent() {
+export default function GovernancePage() {
   return (
     <section id="governance">
       <h1>Governance</h1>

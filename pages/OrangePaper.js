@@ -1,4 +1,4 @@
-export function OrangePaperContent() {
+export function OrangePaperContentPage() {
   return (
     <section id="orange-paper">
       <h1>Orange Paper</h1>
