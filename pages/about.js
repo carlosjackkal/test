@@ -1,10 +1,10 @@
 import Layout from '../components/Layout'
-import AboutContent from '../components/AboutContent'
+import GovernanceContent from '../components/GovernanceContent'
 
 export default function AboutPage() {
   return (
     <Layout>
-      <AboutContent />
+      <GovernanceContent />
     </Layout>
   )
 }

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import HomeContent from '../components/HomeContent'
+import ProblemContent from '../components/ProblemContent'
 
 export default function IndexPage() {
   return (
