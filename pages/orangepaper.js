@@ -19,11 +19,11 @@ export default function OrangePaperContentPage() {
                             <div className="proof-content">
                                 <div className="proof-panel active" data-panel="math">
                                     <p><strong>Theorem 6.2.3</strong> (Supply Convergence): The total supply converges to exactly 21 million BTC.</p>
-                                    <p><em>Proof:</em> The total supply can be expressed as a sum of geometric series. For each halving period $k$ (where $k = \lfloor h/H \rfloor$), the subsidy is $50 \times C \times 2^{-k}$ for $H$ consecutive blocks.</p>
+                                    <p><em>Proof:</em> The total supply can be expressed as a sum of geometric series. For each halving period $k$ (where $k = \lfloor h/H \rfloor$), the subsidy is $50 \times C \times 2^{'-k'}$ for $H$ consecutive blocks.</p>
                                     <div className="math-formula">{`$$\lim_{h \to \infty} \text{TotalSupply}(h) = 21 \times 10^6 \times C$$`}</div>
                                     <p>The total supply is:</p>
                                     <div className="math-formula">{`$$\text{TotalSupply}(\infty) = \sum_{k=0}^{63} H \times 50 \times C \times 2^{-k} = H \times 50 \times C \times \sum_{k=0}^{63} 2^{-k}$$`}</div>
-                                    <p>Since $\sum_{k=0}^{63} 2^{-k} = 2 - 2^{-63} \approx 2$ for large $k$:</p>
+                                    <p>Since $\sum_{'k=0'}^{63} 2^{'-k'} = 2 - 2^{-63} \approx 2$ for large $k$:</p>
                                     <div className="math-formula">{`$$\text{TotalSupply}(\infty) \approx H \times 50 \times C \times 2 = 210,000 \times 50 \times 10^8 \times 2 = 21 \times 10^6 \times 10^8 = 21 \times 10^6 \times C$$`}</div>
                                     <p className="proof-source">Source: <a href="https://github.com/BTCDecoded/blvm-spec/blob/main/THE_ORANGE_PAPER.md#theorem-623-supply-convergence" target="_blank" rel="noopener">Orange Paper, Theorem 6.2.3 (GitHub)</a></p>
                                 </div>
