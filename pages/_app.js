@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import '../components/styles.css';
 
 export default function MyApp({ Component, pageProps }) {
   return (
