@@ -1,40 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout';
-import Link from 'next/link';
+import NavBar from '../components/NavBar';
 import '../components/styles.css';
 
+const DevNavLinks = [
+  { href: '/problem', title: 'Problem' },
+  { href: '/architecture', title: 'Architecture' },
+  { href: '/orangepaper', title: 'Orange Paper' },
+  { href: '/governance', title: 'Governance' },
+  { href: 'https://thebitcoincommons.org', title: 'Framework', external: true },
+];
+
+const NodeNavLinks = [
+  { href: '/problem', title: 'Problem' },
+  { href: '/architecture', title: 'Architecture' },
+  { href: '/orangepaper', title: 'Orange Paper' },
+  { href: '/governance', title: 'Governance' },
+  { href: 'https://thebitcoincommons.org', title: 'Framework', external: true },
+];
+
+export const Workflow = {
+    Nodes: 'Nodes',
+    Developers: 'Developers',
+}
+
 export default function MyApp({ Component, pageProps }) {
+  const [selectedWorkflow, setSelectedWorkflow] = useState(Workflow.Nodes);
+
+  const navLinks = selectedWorkflow === Workflow.Developers ? DevNavLinks : NodeNavLinks;
+
   return (
     <Layout>
-      <section>
-        
-        <nav className="nav">
-        <div className="nav-container">
-          <div className="nav-logo">
-            <Link href="/" style={{ marginRight: 12 }}>
-              BTCDecoded
-            </Link>
-          </div>
-          <div className="nav-links">
-            <Link href="/problem" style={{ marginRight: 12 }}>
-              Problem
-            </Link>
-            <Link href="/architecture" style={{ marginRight: 12 }}>
-              Architecture
-            </Link>
-            <Link href="/orangepaper" style={{ marginRight: 12 }}>
-              Orange Paper
-            </Link>
-            <Link href="/governance" style={{ marginRight: 12 }}>
-              Governance
-            </Link>
-            <a href="https://thebitcoincommons.org" target="_blank" rel="noopener" id="commonsNavlink">
-              Framework
-            </a>
-          </div>
-        </div>
-      </nav>
-      </section>
+      <NavBar 
+        selectedWorkflow={selectedWorkflow} 
+        setSelectedWorkflow={setSelectedWorkflow} 
+        navLinks={navLinks} 
+      />
       <Component {...pageProps} />
     </Layout>
   );
