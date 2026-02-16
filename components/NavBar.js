@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Workflow } from '../pages/_app';
 
 export default function NavBar({ selectedWorkflow, setSelectedWorkflow, navLinks }) {
 
@@ -9,22 +10,7 @@ export default function NavBar({ selectedWorkflow, setSelectedWorkflow, navLinks
             <Link href="/" style={{ marginRight: 12 }}>
               BTCDecoded
             </Link>
-            <div className="workflow-toggle">
-              <button 
-                className={selectedWorkflow === 'Devs' ? 'active' : ''} 
-                onClick={() => setSelectedWorkflow('Devs')} 
-                style={{ marginLeft: 12 }}
-              >
-                Devs
-              </button>
-              <button 
-                className={selectedWorkflow === 'Nodes' ? 'active' : ''} 
-                onClick={() => setSelectedWorkflow('Nodes')} 
-                style={{ marginLeft: 8 }}
-              >
-                Nodes
-              </button>
-            </div>
+            
           </div>
           <div className="nav-links">
             {navLinks.map((link, index) => (
