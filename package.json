@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next build && next export && rm -rf docs/* && cp -r out/* docs && touch ./docs/.nojekyll",
     "deploy": "npm run export && npx gh-pages -d docs",
-    "serve": "serve -l 3000 docs",
+    "serve": "serve -l 3000 out",
     "start": "next start"
   },
   "dependencies": {
