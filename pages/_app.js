@@ -27,8 +27,9 @@ export const Workflow = {
 }
 
 export default function MyApp({ Component, pageProps }) {
-  const [selectedWorkflow, setSelectedWorkflow] = useState(Workflow.Splash);
+  const [selectedWorkflow, setSelectedWorkflow] = useState(Workflow.Developers);
 
+  
   let navLinks;
   switch (selectedWorkflow) {
     case Workflow.Developers:
