@@ -9,7 +9,7 @@ const DevNavLinks = [
   { href: '/architecture', title: 'Architecture' },
   { href: '/orangepaper', title: 'Orange Paper' },
   { href: '/governance', title: 'Governance' },
-  { href: 'https://thebitcoincommons.org', title: 'Framework', external: true },
+  // { href: 'https://thebitcoincommons.org', title: 'Framework', external: true },
 ];
 
 const NodeNavLinks = [
