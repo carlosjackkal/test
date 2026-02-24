@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import NavBar from '../components/NavBar';
 import '../components/styles.css';
 import Splash from '../components/Splash';
+import {MathJaxContext} from "better-react-mathjax";
 
 const DevNavLinks = [
   { href: '/problem', title: 'Problem' },
@@ -11,6 +12,17 @@ const DevNavLinks = [
   { href: '/governance', title: 'Governance' },
   // { href: 'https://thebitcoincommons.org', title: 'Framework', external: true },
 ];
+
+const mathJaxconfig = {
+  loader: { load: ["input/tex", "output/chtml"] },
+  tex: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+  },
+  output: {
+    font: "mathjax-stix2", // deterministic academic fonts
+  },
+};
 
 const NodeNavLinks = [
   { href: '/whyblvm', title: 'Why BLVM?' },
@@ -43,16 +55,18 @@ export default function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <Layout>
-      <NavBar 
-        selectedWorkflow={selectedWorkflow} 
-        setSelectedWorkflow={setSelectedWorkflow} 
-        navLinks={navLinks} 
+    <MathJaxContext config={mathJaxconfig}>
+      <Layout>
+        <NavBar 
+          selectedWorkflow={selectedWorkflow} 
+          setSelectedWorkflow={setSelectedWorkflow} 
+          navLinks={navLinks} 
       />
       {selectedWorkflow === Workflow.Splash && <Splash setSelectedWorkflow={setSelectedWorkflow} Workflow={Workflow} />}
       
       {selectedWorkflow !== Workflow.Splash && <Component {...pageProps} />}
       
     </Layout>
+    </MathJaxContext>
   );
 }

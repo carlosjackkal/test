@@ -1,3 +1,5 @@
+import { MathJax } from "better-react-mathjax";
+
 export default function OrangePaperContentPage() {
   return (
     <section id="orange-paper" className="section">
@@ -19,12 +21,64 @@ export default function OrangePaperContentPage() {
                             <div className="proof-content">
                                 <div className="proof-panel active" data-panel="math">
                                     <p><strong>Theorem 6.2.3</strong> (Supply Convergence): The total supply converges to exactly 21 million BTC.</p>
-                                    <p><em>Proof:</em> The total supply can be expressed as a sum of geometric series. For each halving period $k$ (where $k = \lfloor h/H \rfloor$), the subsidy is $50 \times C \times 2^{'-k'}$ for $H$ consecutive blocks.</p>
-                                    <div className="math-formula">{`$$\lim_{h \to \infty} \text{TotalSupply}(h) = 21 \times 10^6 \times C$$`}</div>
+
+                            
+
+                                    <div>
+                                
+
+                                    <p>
+                                        <em>Proof:</em> The total supply can be expressed as a sum of geometric
+                                        series. For each halving period <MathJax inline>{`\\(k\\)`}</MathJax> {'('}where {' '}
+                                        <MathJax inline>
+                                        {`\\(   k = \\lfloor h/H \\rfloor \\)`}
+                                        </MathJax>
+                                        {')'}, the subsidy is{" "}
+                                        <MathJax inline>{`\\(50 \\times C \\times 2^{-k}\\)`}</MathJax>{" "}
+                                        for <MathJax inline>{`\\(H\\)`}</MathJax> consecutive blocks.
+                                    </p>
+
+                                    <MathJax>
+                                        {`
+                                        \\[
+                                        \\lim_{h \\to \\infty} \\text{TotalSupply}(h)
+                                        = 21 \\times 10^6 \\times C
+                                        \\]
+                                        `}
+                                    </MathJax>
+
                                     <p>The total supply is:</p>
-                                    <div className="math-formula">{`$$\text{TotalSupply}(\infty) = \sum_{k=0}^{63} H \times 50 \times C \times 2^{-k} = H \times 50 \times C \times \sum_{k=0}^{63} 2^{-k}$$`}</div>
-                                    <p>Since $\sum_{'k=0'}^{63} 2^{'-k'} = 2 - 2^{-63} \approx 2$ for large $k$:</p>
-                                    <div className="math-formula">{`$$\text{TotalSupply}(\infty) \approx H \times 50 \times C \times 2 = 210,000 \times 50 \times 10^8 \times 2 = 21 \times 10^6 \times 10^8 = 21 \times 10^6 \times C$$`}</div>
+
+                                    <MathJax>
+                                        {`
+                                        \\[
+                                        \\text{TotalSupply}(\\infty)
+                                        = \\sum_{k=0}^{\\infty} H \\times 50 \\times C \\times 2^{-k}
+                                        
+                                        \\]
+                                        `}
+                                    </MathJax>
+
+                                    <p>
+                                        Since <MathJax inline>{`\\(\\sum_{k=0}^{63} 2^{-k} = 2 - 2^{-63} \\approx 2\\)`}</MathJax>{" "}
+                                        for large <MathJax inline>{`\\(k\\)`}</MathJax>:
+                                    </p>
+
+                                    <MathJax>
+                                        {`
+                                        \\[
+                                        \\text{TotalSupply}(\\infty)
+                                        \\approx H \\times 50 \\times C \\times 2
+                                        = 210{,}000 \\times 50 \\times 10
+                                        \\]
+                                        `}
+                                    </MathJax>
+                                    </div>
+
+
+
+
+                                   
                                     <p className="proof-source">Source: <a href="https://github.com/BTCDecoded/blvm-spec/blob/main/THE_ORANGE_PAPER.md#theorem-623-supply-convergence" target="_blank" rel="noopener">Orange Paper, Theorem 6.2.3 (GitHub)</a></p>
                                 </div>
                                 
