@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import "../components/styles.css";
 import Splash from "../components/Splash";
 import { MathJaxContext } from "better-react-mathjax";
+import Footer from "../components/Footer";
 
 const DevNavLinks = [
   { href: "/problem", title: "Problem" },
@@ -68,6 +69,7 @@ export default function MyApp({ Component, pageProps }) {
         )}
 
         {selectedWorkflow !== Workflow.Splash && <Component {...pageProps} />}
+        <Footer/>
       </Layout>
     </MathJaxContext>
   );
