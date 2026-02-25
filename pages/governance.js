@@ -40,7 +40,7 @@ export default function GovernancePage() {
           <div class="commons-chart-fullwidth">
             <div class="commons-chart-wrapper">
               <img
-                src="assets/images/centralized-vs-decentralized.png"
+                src="/assets/images/centralized-vs-decentralized.png"
                 alt="Centralized vs Decentralized Governance"
               />
             </div>
