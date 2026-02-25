@@ -53,7 +53,8 @@ export default function OrangePaperContentPage() {
                                         {`
                                         \\[
                                         \\text{TotalSupply}(\\infty)
-                                        = \\sum_{k=0}^{\\infty} H \\times 50 \\times C \\times 2^{-k}
+                                        = \\sum_{k=0}^{63} H \\times 50 \\times C \\times 2^{-k} 
+                                        = H \\times 50 \\times C \\times \\sum_{k=0}^{63}2^{-k}
                                         
                                         \\]
                                         `}
@@ -69,7 +70,8 @@ export default function OrangePaperContentPage() {
                                         \\[
                                         \\text{TotalSupply}(\\infty)
                                         \\approx H \\times 50 \\times C \\times 2
-                                        = 210{,}000 \\times 50 \\times 10
+                                        = 210{,}000 \\times 50 \\times 10^{8} \\times 2
+                                        = 21 \\times 10^6 \\times 10^{8}
                                         \\]
                                         `}
                                     </MathJax>
