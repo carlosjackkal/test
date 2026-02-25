@@ -1,7 +1,5 @@
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-
-
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Layout({ children }) {
   const [isMounted, setIsMounted] = useState(false);
@@ -12,8 +10,7 @@ export default function Layout({ children }) {
 
   return (
     <div>
-      
-      <main style={{ padding: '12px' }}>{children}</main>
+      <main style={{ padding: "12px" }}>{children}</main>
     </div>
   );
 }
