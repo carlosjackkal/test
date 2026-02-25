@@ -103,6 +103,18 @@ p {
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  margin-bottom: 5px;
+}
+.nav-container-mobile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 5px;
 }
 
 .nav-logo a {
