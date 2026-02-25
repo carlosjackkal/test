@@ -1,6 +1,25 @@
+import { useState, useEffect } from "react";
 import { MathJax } from "better-react-mathjax";
 
 export default function OrangePaperContentPage() {
+  const [activeTab, setActiveTab] = useState("math");
+  const [isAutoSwitching, setIsAutoSwitching] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoSwitching) return;
+
+    const interval = setInterval(() => {
+      setActiveTab((prevTab) => (prevTab === "math" ? "formal" : "math"));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoSwitching]);
+
+  const handleTabClick = (tab) => {
+    setIsAutoSwitching(false);
+    setActiveTab(tab);
+  };
+
   return (
     <section id="orange-paper" className="section">
       <div className="container">
@@ -25,16 +44,28 @@ export default function OrangePaperContentPage() {
                 <h4>Supply Convergence Proof</h4>
 
                 <div className="proof-tabs">
-                  <button className="proof-tab active" data-tab="math">
+                  <button
+                    className={`proof-tab ${activeTab === "math" ? "active" : ""}`}
+                    data-tab="math"
+                    onClick={() => handleTabClick("math")}
+                  >
                     Math Proof
                   </button>
-                  <button className="proof-tab" data-tab="formal">
+                  <button
+                    className={`proof-tab ${activeTab === "formal" ? "active" : ""}`}
+                    data-tab="formal"
+                    onClick={() => handleTabClick("formal")}
+                  >
                     Formal Proof
                   </button>
                 </div>
 
                 <div className="proof-content">
-                  <div className="proof-panel active" data-panel="math">
+                  <div
+                    className="proof-panel"
+                    data-panel="math"
+                    style={{ display: activeTab === "math" ? "block" : "none" }}
+                  >
                     <p>
                       <strong>Theorem 6.2.3</strong> (Supply Convergence): The
                       total supply converges to exactly 21 million BTC.
@@ -110,7 +141,11 @@ export default function OrangePaperContentPage() {
                     </p>
                   </div>
 
-                  <div className="proof-panel" data-panel="formal">
+                  <div
+                    className="proof-panel"
+                    data-panel="formal"
+                    style={{ display: activeTab === "formal" ? "block" : "none" }}
+                  >
                     <p className="formal-proof-description">
                       This Rust code is formally verified using blvm-spec-lock
                       with Z3 to prove the supply convergence property.
@@ -130,14 +165,16 @@ export default function OrangePaperContentPage() {
                         </a>
                       </div>
                       <pre>
-                        <code className="language-rust">{`/// TotalSupply: ℕ → ℤ
+                        <code className="language-rust">
+                          {`/// TotalSupply: ℕ → ℤ
 ///
 /// Calculate the total Bitcoin supply at a given height.
 /// This is the sum of all block subsidies up to that height.
 #[spec_locked("6.2")]
 pub fn total_supply(height: Natural) -> Integer {
     // Implementation verified with blvm-spec-lock and Z3
-}`}</code>
+}`}
+                        </code>
                       </pre>
                     </div>
                   </div>
