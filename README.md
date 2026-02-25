@@ -1,8 +1,11 @@
 # TTtest commit
+
 # hello are you there?
 
 # Next.js + HashRouter SPA test
+
 ##
+
 This repository contains a minimal Next.js app that demonstrates:
 
 - Client-side navigation using React Router's `HashRouter` (hash-based routes)
@@ -28,6 +31,7 @@ npm run export
 ```
 
 The dev server respects the `basePath: '/test'` configuration in `next.config.js`, so you can access the app at:
+
 - **Home**: http://localhost:3000/test/
 - **About**: http://localhost:3000/test/#/about
 - **Contact**: http://localhost:3000/test/#/contact
