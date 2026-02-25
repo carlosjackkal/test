@@ -23,7 +23,7 @@ export default function NavBar({ navLinks }) {
             BTCDecoded
           </Link>
         </div>
-        <div className="nav-links">
+        <div className="nav-links nav-links-mobile">
           {navLinks.map((link, index) => (
             <Link key={index} href={link.href} style={{ marginRight: 12 }}>
               {link.title}
